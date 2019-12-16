@@ -12,6 +12,10 @@ arn:aws:lambda:us-east-1:764866452798:layer:apache-tika:1
 
 Current version of Apache Tika is `1.23`. More information: https://tika.apache.org/
 
+## Where Apache Tika `.jar` file will be located when I attached the layer?
+
+You can find it at `opt/bin/tika-app.jar` (`opt` is a location where lambda unpacks layers and we put the layer inside of `bin` folder).
+
 ## Available regions
 
 * ap-northeast-1
