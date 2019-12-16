@@ -2,12 +2,14 @@
 
 TIKA_VERSION=1.23
 LAYER_NAME='apache-tika'
-LAYER_VERSION=1
+BUCKET_NAME=shelf-apache-tika-lambda-layer-"$TARGET_REGION"
+
+aws s3 cp ./apache-tika.zip s3://"$BUCKET_NAME"/layer.zip
 
 LAYER_VERSION=$(
   aws lambda publish-layer-version --region "$TARGET_REGION" \
     --layer-name $LAYER_NAME \
-    --zip-file fileb://apache-tika.zip \
+    --content S3Bucket="$BUCKET_NAME",S3Key=layer.zip \
     --description "Apache Tika v${TIKA_VERSION}" \
     --query Version \
     --output text
