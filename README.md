@@ -14,7 +14,7 @@ Current version of Apache Tika is `1.23`. More information: https://tika.apache.
 
 ## What is the path to Apache Tika `.jar` file inside of Lambda when I attached the layer?
 
-You can find it at `opt/bin/tika-app.jar` (`opt` is a location where lambda unpacks layers and we put the layer inside of `bin` folder).
+You can find it at `opt/tika-app.jar` (`opt` is a location where lambda unpacks layers).
 
 ## Available regions
 
@@ -22,8 +22,8 @@ You can find it at `opt/bin/tika-app.jar` (`opt` is a location where lambda unpa
 
 ## Update
 
-1. Go to https://tika.apache.org/download.html, download Apache Tika `runnable jar`.
-2. Create zip archive of Apache Tika app in the `bin` folder with the filename `apache-tika.zip`
+1. Go to https://tika.apache.org/download.html, download Apache Tika server `runnable jar`.
+2. Create zip archive of Apache Tika server with the filename `apache-tika.zip`
 3. Put zip archive into this repo
 3. Put proper version inside of `publish.sh`
 4. Commit & Create Pull Request
