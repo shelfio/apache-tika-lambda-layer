@@ -14,7 +14,7 @@ Current version of Apache Tika is `1.23`. More information: https://tika.apache.
 
 ## What is the path to Apache Tika `.jar` file inside of Lambda when I attached the layer?
 
-You can find it at `opt/tika-app.jar` (`opt` is a location where lambda unpacks layers).
+You can find it at `opt/tika-server-1.23.jar` (`opt` is a location where lambda unpacks layers).
 
 ## Available regions
 
