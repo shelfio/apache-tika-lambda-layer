@@ -15,6 +15,12 @@ arn:aws:lambda:us-east-1:764866452798:layer:apache-tika:1
 | --------------------------------------------------------- | ------------------------------------------------------------------------ |
 | arn:aws:lambda:us-east-1:764866452798:layer:apache-tika:1 | [1.23](https://dist.apache.org/repos/dist/release/tika/CHANGES-1.23.txt) |
 
+## How can I use it with the Lambda runtime which doesn't have Java installed?
+
+The latest Apache Tika version requires Java 8 to be able to work. 
+
+If your runtime doesn't have Java installed, you can use [Java 8 Lambda layer](https://github.com/shelfio/java-lambda-layer), which actually was designed to make Apache Tika work on Node.js 12.x runtime.
+
 ## Where can I find Apache Tika `.jar` file inside of Lambda when I attached the layer?
 
 You can find it at `/opt/tika-server-1.23.jar` (`/opt` is where Lambda unpacks layers).
