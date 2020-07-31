@@ -23,7 +23,7 @@ workflows:
   publish:
     jobs:
       - us_east_1:
-          context: apache-tika-lambda-layer
+          context: public-lambda-layers
           filters:
             branches:
               only:
