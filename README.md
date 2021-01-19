@@ -8,12 +8,10 @@ Click on Layers and choose "Add a layer", and "Provide a layer version
 ARN" and enter the following ARN.
 
 ```
-arn:aws:lambda:us-east-1:764866452798:layer:apache-tika:1
+arn:aws:lambda:us-east-1:764866452798:layer:apache-tika:5
 ```
 
-| Layer ARN                                                 | Tika Version                                                             |
-| --------------------------------------------------------- | ------------------------------------------------------------------------ |
-| arn:aws:lambda:us-east-1:764866452798:layer:apache-tika:1 | [1.25](https://tika.apache.org/1.25/index.html) |
+Current version: [1.25](https://tika.apache.org/1.25/index.html)
 
 ## How can I use it with the Lambda runtime which doesn't have Java installed?
 
@@ -27,7 +25,22 @@ You can find it at `/opt/tika-server.jar` (`/opt` is where Lambda unpacks layers
 
 ## Available regions
 
-- us-east-1
+* ap-northeast-1: `arn:aws:lambda:ap-northeast-1:764866452798:layer:apache-tika:1`
+* ap-northeast-2: `arn:aws:lambda:ap-northeast-2:764866452798:layer:apache-tika:1`
+* ap-south-1: `arn:aws:lambda:ap-south-1:764866452798:layer:apache-tika:1`
+* ap-southeast-1: `arn:aws:lambda:ap-southeast-1:764866452798:layer:apache-tika:1`
+* ap-southeast-2: `arn:aws:lambda:ap-southeast-2:764866452798:layer:apache-tika:1`
+* ca-central-1: `arn:aws:lambda:ca-central-1:764866452798:layer:apache-tika:1`
+* eu-north-1: `arn:aws:lambda:eu-north-1:764866452798:layer:apache-tika:1`
+* eu-central-1: `arn:aws:lambda:eu-central-1:764866452798:layer:apache-tika:1`
+* eu-west-1: `arn:aws:lambda:eu-west-1:764866452798:layer:apache-tika:1`
+* eu-west-2: `arn:aws:lambda:eu-west-2:764866452798:layer:apache-tika:1`
+* eu-west-3: `arn:aws:lambda:eu-west-3:764866452798:layer:apache-tika:1`
+* sa-east-1: `arn:aws:lambda:sa-east-1:764866452798:layer:apache-tika:1`
+* us-east-1: `arn:aws:lambda:us-east-1:764866452798:layer:apache-tika:5`
+* us-east-2: `arn:aws:lambda:us-east-2:764866452798:layer:apache-tika:1`
+* us-west-1: `arn:aws:lambda:us-west-1:764866452798:layer:apache-tika:1`
+* us-west-2: `arn:aws:lambda:us-west-2:764866452798:layer:apache-tika:1`
 
 ## Update
 
