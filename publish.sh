@@ -1,26 +1,27 @@
 #!/usr/bin/env bash
 
-TIKA_VERSION=1.23
+aws configure set default.region "$TARGET_REGION" --profile default
+
+TIKA_VERSION=1.25
 LAYER_NAME='apache-tika'
-BUCKET_NAME=shelf-lambda-layers-"$TARGET_REGION"
+LAYER_DESCRIPTION="Apache Tika Server v${TIKA_VERSION}"
+S3_BUCKET_NAME=shelf-lambda-layers-"$TARGET_REGION"
+FILENAME="tika-server.zip"
 
-aws s3 cp ./apache-tika.zip s3://"$BUCKET_NAME"/apache-tika.zip
-
-LAYER_VERSION=$(
-  aws lambda publish-layer-version --region "$TARGET_REGION" \
-    --layer-name $LAYER_NAME \
-    --content S3Bucket="$BUCKET_NAME",S3Key=apache-tika.zip \
-    --description "Apache Tika v${TIKA_VERSION}" \
-    --query Version \
-    --output text
-)
+aws s3 cp ./apache-tika.zip s3://"$S3_BUCKET_NAME"/"$FILENAME"
 
 aws lambda add-layer-version-permission \
   --region "$TARGET_REGION" \
-  --layer-name $LAYER_NAME \
+  --layer-name "$LAYER_NAME" \
   --statement-id sid1 \
   --action lambda:GetLayerVersion \
   --principal '*' \
-  --query Statement \
-  --output text \
-  --version-number "$LAYER_VERSION"
+  --version-number "$(
+    aws lambda publish-layer-version \
+      --region "$TARGET_REGION" \
+      --layer-name "$LAYER_NAME" \
+      --description "$LAYER_DESCRIPTION" \
+      --query Version \
+      --output text \
+      --content S3Bucket="$S3_BUCKET_NAME",S3Key="$FILENAME"
+  )"
