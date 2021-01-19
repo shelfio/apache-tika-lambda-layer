@@ -13,7 +13,7 @@ arn:aws:lambda:us-east-1:764866452798:layer:apache-tika:1
 
 | Layer ARN                                                 | Tika Version                                                             |
 | --------------------------------------------------------- | ------------------------------------------------------------------------ |
-| arn:aws:lambda:us-east-1:764866452798:layer:apache-tika:1 | [1.23](https://dist.apache.org/repos/dist/release/tika/CHANGES-1.23.txt) |
+| arn:aws:lambda:us-east-1:764866452798:layer:apache-tika:1 | [1.25](https://tika.apache.org/1.25/index.html) |
 
 ## How can I use it with the Lambda runtime which doesn't have Java installed?
 
@@ -23,7 +23,7 @@ If your runtime doesn't have Java installed, you can use [Java 8 Lambda layer](h
 
 ## Where can I find Apache Tika `.jar` file inside of Lambda when I attached the layer?
 
-You can find it at `/opt/tika-server-1.23.jar` (`/opt` is where Lambda unpacks layers).
+You can find it at `/opt/tika-server.jar` (`/opt` is where Lambda unpacks layers).
 
 ## Available regions
 
@@ -31,11 +31,12 @@ You can find it at `/opt/tika-server-1.23.jar` (`/opt` is where Lambda unpacks l
 
 ## Update
 
-1. Go to https://tika.apache.org/download.html, download Apache Tika server `runnable jar`.
-2. Create zip archive of Apache Tika server with the filename `apache-tika.zip`
-3. Put zip archive into this repo
-4. Put proper version inside of `publish.sh`
-5. Commit & Create Pull Request
+1. Go to https://tika.apache.org/download.html, download Apache Tika server `runnable jar`
+2. Rename the jar file from `tika-server-x.xx.jar` to `tika-server.jar`
+3. Create zip archive of Apache Tika server with the filename `tika-server.zip`
+4. Put zip archive into this repo
+5. Put proper version inside of `publish.sh`
+6. Commit & Create Pull Request
 
 ## License
 
