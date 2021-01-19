@@ -8,7 +8,7 @@ LAYER_DESCRIPTION="Apache Tika Server v${TIKA_VERSION}"
 S3_BUCKET_NAME=shelf-lambda-layers-"$TARGET_REGION"
 FILENAME="tika-server.zip"
 
-aws s3 cp ./apache-tika.zip s3://"$S3_BUCKET_NAME"/"$FILENAME"
+aws s3 cp ./"$FILENAME" s3://"$S3_BUCKET_NAME"/"$FILENAME"
 
 aws lambda add-layer-version-permission \
   --region "$TARGET_REGION" \
