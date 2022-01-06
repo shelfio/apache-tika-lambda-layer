@@ -11,7 +11,7 @@ ARN" and enter the following ARN.
 arn:aws:lambda:us-east-1:764866452798:layer:apache-tika:5
 ```
 
-Current version: [1.25](https://tika.apache.org/1.25/index.html)
+Current version: [2.2.1](https://tika.apache.org/2.2.1/index.html)
 
 ## How can I use it with the Lambda runtime which doesn't have Java installed?
 
