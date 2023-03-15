@@ -158,6 +158,37 @@ jobs:
       TARGET_REGION: us-west-2
     steps:
       - publish
+  
+  semgrep:
+    parameters:
+      default_branch:
+        type: string
+        default: master
+    docker:
+      - image: returntocorp/semgrep
+    environment:
+      SEMGREP_RULES: auto /tmp/shelf-semgrep-rulesets/src/
+      SEMGREP_BASELINE_REF: << parameters.default_branch >>
+    steps:
+      - checkout
+      - run:
+          name: Install SSH key
+          command: |
+            SEMGREP_SECRET_DECODED=$(echo $SEMGREP_SECRET | base64 -d)
+            mkdir -p /root/.ssh
+            ssh-keyscan github.com > /root/.ssh/known_hosts
+            echo "$SEMGREP_SECRET_DECODED" > /tmp/semgrep_key
+            chmod 600 /tmp/semgrep_key
+            eval `ssh-agent -s` && ssh-add /tmp/semgrep_key
+            ssh-add -l
+      - run:
+          name: Clone Semgrep ruleset
+          command: |
+            ssh-add /tmp/semgrep_key
+            GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/root/.ssh/known_hosts -i /tmp/semgrep_key -F /dev/null" git clone git@github.com:shelfio/shelf-semgrep-rulesets.git /tmp/shelf-semgrep-rulesets
+      - run:
+          name: Run Semgrep
+          command: semgrep ci
 
 workflows:
   version: 2
@@ -302,3 +333,7 @@ workflows:
             branches:
               only:
                 - master
+
+  semgrep_analysis:
+    jobs:
+      - semgrep
