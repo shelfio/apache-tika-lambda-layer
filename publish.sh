@@ -2,7 +2,7 @@
 
 aws configure set default.region "$TARGET_REGION" --profile default
 
-TIKA_VERSION=2.3.0
+TIKA_VERSION=2.9.0
 LAYER_NAME='apache-tika'
 LAYER_DESCRIPTION="Apache Tika Server v${TIKA_VERSION}"
 S3_BUCKET_NAME=shelf-lambda-layers-"$TARGET_REGION"
