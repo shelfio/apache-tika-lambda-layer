@@ -8,7 +8,7 @@ Click on Layers and choose "Add a layer", and "Provide a layer version
 ARN" and enter the following ARN.
 
 ```
-arn:aws:lambda:us-east-1:764866452798:layer:apache-tika:7
+arn:aws:lambda:us-east-1:764866452798:layer:apache-tika:8
 ```
 
 Current version: [2.9.0](https://tika.apache.org/2.9.0/index.html)
