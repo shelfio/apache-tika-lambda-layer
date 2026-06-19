@@ -1,0 +1,19 @@
+{
+  "name": "apache-tika-lambda-layer",
+  "version": "0.0.1",
+  "private": true,
+  "description": "AWS Lambda layer containing Apache Tika Server.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "lint": "oxfmt",
+    "lint:ci": "oxfmt --check"
+  },
+  "devDependencies": {
+    "@shelf/prettier-config": "1.1.1",
+    "oxfmt": "0.55.0"
+  }
+}
